@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="cont">
+    <h1>Welcome, {{ session.get('user') or 'Guest' }}!</h1>
+    {% if session.get('user') %}
+        <a id="logout" href="/logout">Logout</a>
+    {% else %}
+        <a id="login" href="/login">Login</a> or <a href="/signup">Sign Up</a>
+    {% endif %}
+    </div>
+</body>
+</html>
